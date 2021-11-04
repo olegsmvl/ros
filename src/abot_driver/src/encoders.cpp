@@ -61,6 +61,7 @@ void EncodersPair::encodersCallback(const ros::TimerEvent& event) {
 	_left_wheel_angle_msg.data = _left_wheel_angle;
 	_right_wheel_angle_msg.data = _right_wheel_angle;
 
+	ROS_INFO("left_wheel_angle %f", _left_wheel_angle);
 	_left_wheel_angle_pub.publish(_left_wheel_angle_msg);
 	_right_wheel_angle_pub.publish(_right_wheel_angle_msg);
 
