@@ -9,7 +9,8 @@ constexpr uint8_t ENCODER_1_PIN_B = 27;  // Wiring pi 2 = BCM 27
 constexpr uint8_t ENCODER_2_PIN_A = 24;  // Wiring pi 5 = BCM 24
 constexpr uint8_t ENCODER_2_PIN_B = 25;  // Wiring pi 6 = BCM 25
 
-constexpr uint16_t PULSES_PER_REVOLUTION = 1920;
+//constexpr uint16_t PULSES_PER_REVOLUTION = 1920;
+constexpr uint16_t PULSES_PER_REVOLUTION = 40;
 
 namespace EncoderWiringPiISR {
 
@@ -25,14 +26,17 @@ namespace EncoderWiringPiISR {
 		if (val_A) s |= 4;
 		if (val_B) s |= 8; 
 		encoder_state = (s >> 2);
-		if (s == 1 || s == 7 || s == 8 || s == 14)
-			encoder_position++;
-		else if (s == 2 || s == 4 || s == 11 || s == 13)
-			encoder_position--;
-		else if (s == 3 || s == 12)
-			encoder_position += 2;
-		else if (s == 6 || s == 9)
-			encoder_position -= 2;
+		// if (s == 1 || s == 7 || s == 8 || s == 14)
+		// 	encoder_position++;
+		// else if (s == 2 || s == 4 || s == 11 || s == 13)
+		// 	encoder_position--;
+		// else if (s == 3 || s == 12)
+		// 	encoder_position += 2;
+		// else if (s == 6 || s == 9)
+		// 	encoder_position -= 2;
+		
+		if (s == 1 || s == 4)
+		 	encoder_position++;
 	}
 
 	void encoderISR1(void) {
