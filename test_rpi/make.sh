@@ -1,3 +1,3 @@
 mkdir build
-g++ app.cpp -o build/app
+g++ app.cpp -lwiringPi -o build/app
 ./app
