@@ -8,6 +8,7 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/comp/ros/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/comp/ros/devel/lib:$LD_LIBRARY_PATH"
 export PWD='/home/comp/ros/build'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/comp/ros/devel/share/common-lisp'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/comp/ros/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/comp/ros/src:$ROS_PACKAGE_PATH"

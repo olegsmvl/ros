@@ -131,6 +131,8 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/comp/ros/build/gtest/cmake_install.cmake")
+  include("/home/comp/ros/build/abot_driver/cmake_install.cmake")
+  include("/home/comp/ros/build/abot_description/cmake_install.cmake")
 
 endif()
 
