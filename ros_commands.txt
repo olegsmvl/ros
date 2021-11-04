@@ -1,0 +1,9 @@
+==rpi
+cd ~/ros
+su root
+source devel/setup.bash
+rosrun abot_driver encoders
+
+==comp
+rostopic echo /abot/right_wheel/angle
+rostopic echo /abot/right_wheel/current_velocity
