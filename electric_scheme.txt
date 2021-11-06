@@ -1,0 +1,4 @@
+MOTOR_1_PIN_D = 4;        // Wiring pi 7 = BCM 4
+MOTOR_1_PIN_E = 18;       // Wiring pi 1 = BCM 18
+MOTOR_2_PIN_D = 12;       // Wiring pi 26 = BCM 12
+MOTOR_2_PIN_E = 13;       // Wiring pi 23 = BCM 13
