@@ -133,6 +133,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(encoders src/encoders.cpp)
+add_executable(dc_motors src/dc_motors.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,6 +151,8 @@ add_executable(encoders src/encoders.cpp)
    -lwiringPi -lpthread -lcrypt -lm -lrt
  )
 
+ target_link_libraries(dc_motors ${catkin_LIBRARIES} -lwiringPi -lpthread -lcrypt -lm -lrt)
+ 
 #############
 ## Install ##
 #############

@@ -20,7 +20,6 @@ namespace EncoderWiringPiISR {
 	volatile uint8_t encoder_state_2;
 
 	void encoderISR(const int pin_A, const int pin_B, volatile long &encoder_position, volatile uint8_t &encoder_state) {
-		ROS_INFO("Encoder callback %ld", encoder_position_1);
 		uint8_t val_A = digitalRead(pin_A);
 		uint8_t val_B = digitalRead(pin_B);
 		uint8_t s = encoder_state & 3;
