@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="abot"
+  	xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- Matherials -->
+	<xacro:include filename="$(find abot_description)/urdf/abot_materials.xacro" />
+	<!-- abot_base -->
+  <link
+    name="abot_base">
+    <inertial>
+      <origin
+        xyz="0 0.00150000000000001 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.468000000000001" />
+      <inertia
+        ixx="0.000390351"
+        ixy="5.37237652524249E-37"
+        ixz="1.82117501628044E-35"
+        iyy="0.00195"
+        iyz="0"
+        izz="0.001560351" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_description/meshes/abot_base.STL" />
+      </geometry>
+      <material
+        name="White">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_description/meshes/abot_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- base_link -->
+<link name="base_link">
+	<visual>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<geometry>
+			<sphere radius="0.001" />
+		</geometry>
+	</visual>
+</link>
+<joint name="base_link_to_abot_base" type="fixed">
+	<origin xyz="0 0 0" rpy="0 0 0" />
+	<parent link="base_link" />
+	<child link="abot_base" />
+</joint>
+<!-- Wheels -->
+<xacro:include filename="$(find abot_description)/urdf/abot_left_wheel.xacro" />
+<xacro:include filename="$(find abot_description)/urdf/abot_right_wheel.xacro" />
+</robot>
