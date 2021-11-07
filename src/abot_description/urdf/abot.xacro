@@ -7,7 +7,9 @@
   	xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<!-- Matherials -->
 	<xacro:include filename="$(find abot_description)/urdf/abot_materials.xacro" />
-	<!-- abot_base -->
+	<!-- clearance -->
+  <xacro:property name="clearance" value="0.018" />
+  <!-- abot_base -->
   <link
     name="abot_base">
     <inertial>
@@ -59,6 +61,21 @@
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<parent link="base_link" />
 	<child link="abot_base" />
+</joint>
+<!-- base_footprint -->
+<link name="base_footprint">
+	<visual>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<geometry>
+			<cylinder length="0.001" radius="0.010" />
+		</geometry>
+		<material name="Blue" />
+	</visual>
+</link>
+<joint name="base_footprint_to_base_link" type="fixed">
+	<origin xyz="0 0 ${clearance}" rpy="0 0 0" />
+	<parent link="base_footprint" />
+	<child link="base_link" />
 </joint>
 <!-- Wheels -->
 <xacro:include filename="$(find abot_description)/urdf/abot_left_wheel.xacro" />
