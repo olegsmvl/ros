@@ -1,13 +1,15 @@
 #include "dc_motor_wiring_pi.h"
 #include <std_msgs/Float64.h>
 
-constexpr uint8_t MOTOR_1_PIN_D = 4;        // Wiring pi 7 = BCM 4
-constexpr uint8_t MOTOR_1_PIN_E = 18;       // Wiring pi 1 = BCM 18
-constexpr uint8_t MOTOR_2_PIN_D = 12;       // Wiring pi 26 = BCM 12
-constexpr uint8_t MOTOR_2_PIN_E = 13;       // Wiring pi 23 = BCM 13
+constexpr uint8_t MOTOR_1_PIN_A = 4;        // Wiring pi 7 = BCM 4
+constexpr uint8_t MOTOR_1_PIN_B = 5;        // Wiring pi 21 = BCM 5
+constexpr uint8_t MOTOR_1_PIN_ENB = 18;       // Wiring pi 1 = BCM 18
+constexpr uint8_t MOTOR_2_PIN_A = 12;       // Wiring pi 26 = BCM 12
+constexpr uint8_t MOTOR_2_PIN_B = 6;       // Wiring pi 22 = BCM 6
+constexpr uint8_t MOTOR_2_PIN_ENB = 13;       // Wiring pi 23 = BCM 13
 
-DCMotorWiringPi left_dc_motor(MOTOR_1_PIN_D, MOTOR_1_PIN_E);
-DCMotorWiringPi right_dc_motor(MOTOR_2_PIN_D, MOTOR_2_PIN_E);
+DCMotorWiringPi left_dc_motor(MOTOR_1_PIN_A, MOTOR_1_PIN_B, MOTOR_1_PIN_ENB);
+DCMotorWiringPi right_dc_motor(MOTOR_2_PIN_A, MOTOR_2_PIN_B, MOTOR_2_PIN_ENB);
 
 void leftMotorCallback(const std_msgs::Float64& msg) {
 	int16_t pwm = msg.data * 100;
