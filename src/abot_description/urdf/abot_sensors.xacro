@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="abot"
+  	xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link
+    name="abot_lidar">
+    <inertial>
+      <origin
+        xyz="-0.00405572587504531 -1.00899709035313E-18 0.0256114517500906"
+        rpy="0 0 0" />
+      <mass
+        value="2.61917781597221" />
+      <inertia
+        ixx="0.00168198342889722"
+        ixy="1.2058020378595E-20"
+        ixz="0.000232514764416348"
+        iyy="0.00261041581110539"
+        iyz="-2.56645228638893E-20"
+        izz="0.00289840915984011" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_description/meshes/abot_lidar.STL" />
+      </geometry>
+      <material
+        name="Yellow">
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://abot_description/meshes/abot_lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_to_base"
+    type="continuous">
+    <origin
+      xyz="0 0 0.003"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="abot_lidar" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  </robot>
