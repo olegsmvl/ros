@@ -10,7 +10,7 @@ constexpr uint8_t ENCODER_2_PIN_A = 24;  // Wiring pi 5 = BCM 24
 constexpr uint8_t ENCODER_2_PIN_B = 25;  // Wiring pi 6 = BCM 25
 
 //constexpr uint16_t PULSES_PER_REVOLUTION = 1920;
-constexpr uint16_t PULSES_PER_REVOLUTION = 40;
+constexpr uint16_t PULSES_PER_REVOLUTION = 624;
 
 namespace EncoderWiringPiISR {
 
@@ -24,7 +24,7 @@ namespace EncoderWiringPiISR {
 		uint8_t val_B = digitalRead(pin_B);
 		uint8_t s = encoder_state & 3;
 		if (val_A) s |= 4;
-		if (val_B) s |= 8; 
+		//if (val_B) s |= 8; 
 		encoder_state = (s >> 2);
 		// if (s == 1 || s == 7 || s == 8 || s == 14)
 		// 	encoder_position++;
@@ -35,16 +35,23 @@ namespace EncoderWiringPiISR {
 		// else if (s == 6 || s == 9)
 		// 	encoder_position -= 2;
 		
-		if (s == 1 || s == 4)
-		 	encoder_position++;
+		if (s == 1 || s == 4){
+			if (val_B)
+		 		encoder_position--;
+			else
+				encoder_position++;
+			ROS_INFO("val_B: %u", val_B);
+		}
 	}
 
 	void encoderISR1(void) {
 		encoderISR(ENCODER_1_PIN_A, ENCODER_1_PIN_B,  encoder_position_1, encoder_state_1);
+		ROS_INFO("encoder_position_1: %ld", encoder_position_1);
 	}
 
 	void encoderISR2(void) {
 		encoderISR(ENCODER_2_PIN_A, ENCODER_2_PIN_B,  encoder_position_2, encoder_state_2);
+		ROS_INFO("encoder_position_2: %ld", encoder_position_2);
 	}
 }
 

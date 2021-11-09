@@ -16,10 +16,11 @@ int main(){
 	
 	//wiringPiSetupSys();
 	wiringPiSetupGpio();	
+	pullUpDnControl(ENCODER_1_PIN_B, PUD_UP);
 	
 	int prev = 0;
 	while (true){
-		int val_A = digitalRead(ENCODER_1_PIN_A);		
+		int val_A = digitalRead(ENCODER_1_PIN_B);		
 if (val_A != prev)		
 std::cout << "val A " << val_A << "test"  << std::endl;
 		prev = val_A;
