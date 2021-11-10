@@ -18,8 +18,10 @@ namespace EncoderWiringPiISR {
 	volatile long  encoder_position_2;
 	volatile uint8_t encoder_state_1;
 	volatile uint8_t encoder_state_2;
+	volatile bool forward_1;
+	volatile bool forward_2;
 
-	void encoderISR(const int pin_A, const int pin_B, volatile long &encoder_position, volatile uint8_t &encoder_state) {
+	void encoderISR(const int pin_A, const int pin_B, volatile long &encoder_position, volatile uint8_t &encoder_state, volatile bool &forward) {
 		uint8_t val_A = digitalRead(pin_A);
 		uint8_t val_B = digitalRead(pin_B);
 		uint8_t s = encoder_state & 3;
@@ -36,21 +38,21 @@ namespace EncoderWiringPiISR {
 		// 	encoder_position -= 2;
 		
 		if (s == 1 || s == 4){
-			if (val_B)
-		 		encoder_position--;
+			if (forward)
+		 		encoder_position++;
 			else
-				encoder_position++;
+				encoder_position--;
 			//ROS_INFO("val_B: %u", val_B);
 		}
 	}
 
 	void encoderISR1(void) {
-		encoderISR(ENCODER_1_PIN_A, ENCODER_1_PIN_B,  encoder_position_1, encoder_state_1);
+		encoderISR(ENCODER_1_PIN_A, ENCODER_1_PIN_B,  encoder_position_1, encoder_state_1, forward_1);
 		//ROS_INFO("encoder_position_1: %ld", encoder_position_1);
 	}
 
 	void encoderISR2(void) {
-		encoderISR(ENCODER_2_PIN_A, ENCODER_2_PIN_B,  encoder_position_2, encoder_state_2);
+		encoderISR(ENCODER_2_PIN_A, ENCODER_2_PIN_B,  encoder_position_2, encoder_state_2, forward_2);
 		//ROS_INFO("encoder_position_2: %ld", encoder_position_2);
 	}
 }
@@ -59,12 +61,15 @@ class EncoderWiringPi {
 public:
 	EncoderWiringPi(const int &pin_A, const int &pin_B, void (*isrFunction)(void), volatile long* encoder_position);
 	double getAngle();
+	void setForward();
+	void setBackward();
 private:
 	int _pin_A;
 	int _pin_B;
 	volatile long* _encoder_position;
 	double _initial_angle;
 	double ticks2Angle(long position);
+	bool _forward = false;
 };
 
 EncoderWiringPi::EncoderWiringPi(const int &pin_A, const int &pin_B, void (*isrFunction)(void), volatile long* encoder_position) {
@@ -102,5 +107,12 @@ double EncoderWiringPi::getAngle() {
 double EncoderWiringPi::ticks2Angle(long position) {
 	return position * ((double)2 * M_PI / PULSES_PER_REVOLUTION / 2);
 }
+
+	void EncoderWiringPi::setForward(){
+		_forward = true;
+	}
+	void EncoderWiringPi::setBackward(){
+		_forward = false;
+	}
 
 #endif // ENCODER_WIRING_PI_H_

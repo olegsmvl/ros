@@ -80,8 +80,27 @@ void EncodersPair::encodersCallback(const ros::TimerEvent& event) {
 	_right_wheel_velocity_pub.publish(_right_wheel_velocity_msg);
 }
 
+void leftMotorCallback(const std_msgs::Float64& msg) {
+	int16_t target_vel = msg.data;
+	if (target_vel >= 0) 
+		EncoderWiringPiISR::forward_1 = true;
+	 else 
+		EncoderWiringPiISR::forward_1 = false;
+}
+
+void rightMotorCallback(const std_msgs::Float64& msg) {
+	int16_t target_vel = msg.data;
+	if (target_vel >= 0) 
+		EncoderWiringPiISR::forward_2 = true;
+	else
+		EncoderWiringPiISR::forward_2 = false;
+}
+
 int main(int argc, char** argv) {
 	ros::init(argc, argv, "encoders");
+	ros::NodeHandle node;
+	ros::Subscriber left_motor_target_vel_sub = node.subscribe("/abot/left_wheel/target_velocity", 1, &leftMotorCallback);
+	ros::Subscriber right_motor_target_vel_sub = node.subscribe("/abot/right_wheel/target_velocity", 1, &rightMotorCallback);
 	EncodersPair encoders_pair(0.01);
 	ros::spin();
 	return 0;

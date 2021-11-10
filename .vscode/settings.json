@@ -50,7 +50,14 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "bit": "cpp"
+        "bit": "cpp",
+        "unordered_set": "cpp",
+        "list": "cpp",
+        "optional": "cpp",
+        "mutex": "cpp",
+        "shared_mutex": "cpp",
+        "thread": "cpp",
+        "variant": "cpp"
     },
     "python.autoComplete.extraPaths": [
         "/home/comp/catkin_ws/devel/lib/python3/dist-packages",
