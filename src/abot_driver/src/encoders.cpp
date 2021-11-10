@@ -91,9 +91,9 @@ void leftMotorCallback(const std_msgs::Float64& msg) {
 void rightMotorCallback(const std_msgs::Float64& msg) {
 	int16_t target_vel = msg.data;
 	if (target_vel >= 0) 
-		EncoderWiringPiISR::forward_2 = true;
-	else
 		EncoderWiringPiISR::forward_2 = false;
+	else
+		EncoderWiringPiISR::forward_2 = true;
 }
 
 int main(int argc, char** argv) {

@@ -39,9 +39,9 @@ namespace EncoderWiringPiISR {
 		
 		if (s == 1 || s == 4){
 			if (forward)
-		 		encoder_position++;
+		 		encoder_position--;
 			else
-				encoder_position--;
+				encoder_position++;
 			//ROS_INFO("val_B: %u", val_B);
 		}
 	}
