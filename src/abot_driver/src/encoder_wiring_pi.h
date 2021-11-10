@@ -40,18 +40,18 @@ namespace EncoderWiringPiISR {
 		 		encoder_position--;
 			else
 				encoder_position++;
-			ROS_INFO("val_B: %u", val_B);
+			//ROS_INFO("val_B: %u", val_B);
 		}
 	}
 
 	void encoderISR1(void) {
 		encoderISR(ENCODER_1_PIN_A, ENCODER_1_PIN_B,  encoder_position_1, encoder_state_1);
-		ROS_INFO("encoder_position_1: %ld", encoder_position_1);
+		//ROS_INFO("encoder_position_1: %ld", encoder_position_1);
 	}
 
 	void encoderISR2(void) {
 		encoderISR(ENCODER_2_PIN_A, ENCODER_2_PIN_B,  encoder_position_2, encoder_state_2);
-		ROS_INFO("encoder_position_2: %ld", encoder_position_2);
+		//ROS_INFO("encoder_position_2: %ld", encoder_position_2);
 	}
 }
 
