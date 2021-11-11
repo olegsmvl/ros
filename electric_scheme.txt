@@ -4,3 +4,8 @@ MOTOR_1_PIN_ENB = 18;       // Wiring pi 1 = BCM 18
 MOTOR_2_PIN_A = 12;       // Wiring pi 26 = BCM 12
 MOTOR_2_PIN_B = 6;       // Wiring pi 22 = BCM 6
 MOTOR_2_PIN_ENB = 13;       // Wiring pi 23 = BCM 13
+
+ENCODER_1_PIN_A = 17;  // Wiring pi 0 = BCM 17
+ENCODER_1_PIN_B = 27;  // Wiring pi 2 = BCM 27
+ENCODER_2_PIN_A = 24;  // Wiring pi 5 = BCM 24
+ENCODER_2_PIN_B = 25;  // Wiring pi 6 = BCM 25
