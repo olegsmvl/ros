@@ -43,7 +43,7 @@ namespace EncoderWiringPiISR {
 		// 	else
 		// 		encoder_position++;
 			//ROS_INFO("val_B: %u", val_B);
-		}
+		// }
 	}
 
 	void encoderISR1(void) {
