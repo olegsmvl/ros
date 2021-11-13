@@ -48,12 +48,12 @@ namespace EncoderWiringPiISR {
 
 	void encoderISR1(void) {
 		encoderISR(ENCODER_1_PIN_A, ENCODER_1_PIN_B,  encoder_position_1, encoder_state_1, forward_1);
-		ROS_INFO("encoder_position_1: %ld", encoder_position_1);
+		//ROS_INFO("encoder_position_1: %ld", encoder_position_1);
 	}
 
 	void encoderISR2(void) {
 		encoderISR(ENCODER_2_PIN_A, ENCODER_2_PIN_B,  encoder_position_2, encoder_state_2, forward_2);
-		ROS_INFO("encoder_position_2: %ld", encoder_position_2);
+		//ROS_INFO("encoder_position_2: %ld", encoder_position_2);
 	}
 }
 
@@ -61,6 +61,7 @@ class EncoderWiringPi {
 public:
 	EncoderWiringPi(const int &pin_A, const int &pin_B, void (*isrFunction)(void), volatile long* encoder_position);
 	double getAngle();
+	volatile long  getTicks();
 	void setForward();
 	void setBackward();
 private:
@@ -103,6 +104,8 @@ double EncoderWiringPi::getAngle() {
 	double current_angle = ticks2Angle(*_encoder_position);
 	return current_angle - _initial_angle;
 }
+
+ volatile long EncoderWiringPi::getTicks(){ return *_encoder_position;};
 
 double EncoderWiringPi::ticks2Angle(long position) {
 	return position * ((double)2 * M_PI / PULSES_PER_REVOLUTION / 2);
