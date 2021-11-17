@@ -1,0 +1,58 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/run/user/1000/gvfs/sftp:host=192.168.1.94/home/ubuntu/ros/arduino/include",
+                "/run/user/1000/gvfs/sftp:host=192.168.1.94/home/ubuntu/ros/arduino/src",
+                "/run/user/1000/gvfs/sftp:host=192.168.1.94/home/ubuntu/ros/arduino/.pio/libdeps/uno/Servo/src",
+                "/home/comp/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/home/comp/.platformio/packages/framework-arduino-avr/variants/standard",
+                "/home/comp/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "/home/comp/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "/home/comp/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/home/comp/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "/home/comp/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/run/user/1000/gvfs/sftp:host=192.168.1.94/home/ubuntu/ros/arduino/include",
+                    "/run/user/1000/gvfs/sftp:host=192.168.1.94/home/ubuntu/ros/arduino/src",
+                    "/run/user/1000/gvfs/sftp:host=192.168.1.94/home/ubuntu/ros/arduino/.pio/libdeps/uno/Servo/src",
+                    "/home/comp/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "/home/comp/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "/home/comp/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "/home/comp/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "/home/comp/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "/home/comp/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "/home/comp/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50203",
+                "ARDUINO_AVR_UNO",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega328P__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/home/comp/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
