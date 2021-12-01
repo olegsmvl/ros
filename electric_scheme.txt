@@ -9,3 +9,6 @@ ENCODER_1_PIN_A = 17;  // Wiring pi 0 = BCM 17
 ENCODER_1_PIN_B = 27;  // Wiring pi 2 = BCM 27
 ENCODER_2_PIN_A = 24;  // Wiring pi 5 = BCM 24
 ENCODER_2_PIN_B = 25;  // Wiring pi 6 = BCM 25
+
+1 - Left
+2 - Right
