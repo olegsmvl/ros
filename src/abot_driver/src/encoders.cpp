@@ -61,7 +61,7 @@ void EncodersPair::encodersCallback(const ros::TimerEvent& event) {
 	_right_wheel_angle = 1 * _encoder_right.getAngle();
 	volatile long ticks_left_wheel = _encoder_left.getTicks();
 	volatile long ticks_left_wheel_delta = ticks_left_wheel - ticks_left_wheel_prev;
-	ROS_INFO("ticks_left_wheel_delta: %ld", ticks_left_wheel_delta);
+	//ROS_INFO("ticks_left_wheel_delta: %ld", ticks_left_wheel_delta);
 
 	ticks_left_wheel_prev = ticks_left_wheel;
 
@@ -74,15 +74,15 @@ void EncodersPair::encodersCallback(const ros::TimerEvent& event) {
 	double delta_left_wheel = _left_wheel_angle - _left_wheel_position;
 	double delta_right_wheel = _right_wheel_angle - _right_wheel_position;
 
-	ROS_INFO("delta_left_wheel: %f", delta_left_wheel);
+	//ROS_INFO("delta_left_wheel: %f", delta_left_wheel);
 	//ROS_INFO("delta_right_wheel: %f", delta_right_wheel);
 
 	_left_wheel_position += delta_left_wheel;
 	_left_wheel_velocity = delta_left_wheel / elapsed.toSec();
 
 	double elapsed_time = elapsed.toSec();
-	ROS_INFO("elapsed_time: %f", elapsed_time);
-	ROS_INFO("_left_wheel_velocity: %f", _left_wheel_velocity);
+	// ROS_INFO("elapsed_time: %f", elapsed_time);
+	// ROS_INFO("_left_wheel_velocity: %f", _left_wheel_velocity);
 
 	_right_wheel_position += delta_right_wheel;
 	_right_wheel_velocity = delta_right_wheel / elapsed.toSec();
