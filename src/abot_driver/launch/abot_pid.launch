@@ -1,9 +1,9 @@
 <launch>
 	<node name="controller" pkg="pid" type="controller" ns="/abot/left_wheel" output="screen" >
 		<param name="node_name" value="left_wheel_pid" />
-		<param name="Kp" value="1.0" />
+		<param name="Kp" value="6.2" />
 		<param name="Ki" value="0.0" />
-		<param name="Kd" value="0.0" />
+		<param name="Kd" value="0.025" />
 		<param name="upper_limit" value="10.23" />
 		<param name="lower_limit" value="-10.23" />
 		<param name="windup_limit" value="10.23" />
@@ -15,9 +15,9 @@
 	</node>
 	<node name="controller" pkg="pid" type="controller" ns="/abot/right_wheel" output="screen" >
 		<param name="node_name" value="right_wheel_pid" />
-		<param name="Kp" value="1.0" />
+		<param name="Kp" value="6.0" />
 		<param name="Ki" value="0.0" />
-		<param name="Kd" value="0.0" />
+		<param name="Kd" value="0.025" />
 		<param name="upper_limit" value="10.23" />
 		<param name="lower_limit" value="-10.23" />
 		<param name="windup_limit" value="10.23" />
