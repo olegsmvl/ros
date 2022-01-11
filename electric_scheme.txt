@@ -1,9 +1,9 @@
-MOTOR_1_PIN_A = 4;        // Wiring pi 7 = BCM 4
-MOTOR_1_PIN_B = 5;        // Wiring pi 21 = BCM 5
-MOTOR_1_PIN_ENB = 18;       // Wiring pi 1 = BCM 18
-MOTOR_2_PIN_A = 12;       // Wiring pi 26 = BCM 12
-MOTOR_2_PIN_B = 6;       // Wiring pi 22 = BCM 6
-MOTOR_2_PIN_ENB = 13;       // Wiring pi 23 = BCM 13
+MOTOR_1_PIN_A = 4;        // Wiring pi 7 = BCM 4 , driver IN1
+MOTOR_1_PIN_B = 5;        // Wiring pi 21 = BCM 5 , driver IN2
+MOTOR_1_PIN_ENB = 18;       // Wiring pi 1 = BCM 18 , driver ENA
+MOTOR_2_PIN_A = 12;       // Wiring pi 26 = BCM 12 , driver IN3
+MOTOR_2_PIN_B = 6;       // Wiring pi 22 = BCM 6 , driver IN4
+MOTOR_2_PIN_ENB = 13;       // Wiring pi 23 = BCM 13 , driver ENB
 
 ENCODER_1_PIN_A = 17;  // Wiring pi 0 = BCM 17
 ENCODER_1_PIN_B = 27;  // Wiring pi 2 = BCM 27

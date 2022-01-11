@@ -10,7 +10,7 @@
 #define MOTOR_2_PIN_E 13 // Wiring pi 23 = BCM 13
 
 DCMotorWiringPi left_dc_motor(MOTOR_1_PIN_A, MOTOR_1_PIN_B, MOTOR_1_PIN_E);
-DCMotorWiringPi right_dc_motor(MOTOR_2_PIN_A, MOTOR_1_PIN_B, MOTOR_2_PIN_E);
+DCMotorWiringPi right_dc_motor(MOTOR_2_PIN_A, MOTOR_2_PIN_B, MOTOR_2_PIN_E);
 
 void leftMotorCallback(const std_msgs::Float64& msg) {
 	int16_t pwm = msg.data * 100;
