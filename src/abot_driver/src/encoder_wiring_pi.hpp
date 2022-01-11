@@ -9,7 +9,7 @@
 #define ENCODER_2_PIN_A 24  // Wiring pi 5 = BCM 24
 #define ENCODER_2_PIN_B 25  // Wiring pi 6 = BCM 25
 
-#define PULSES_PER_REVOLUTION 1920
+#define PULSES_PER_REVOLUTION 2160
 
 namespace EncoderWiringPiISR {
 
