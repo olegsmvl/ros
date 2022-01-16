@@ -11,5 +11,5 @@ cost_scaling_factor: 10.0
 
 plugins:
   - {name: static,                  type: "costmap_2d::StaticLayer"}
-  - {name: fake_walls,              type: "costmap_2d::StaticLayer"}
+#  - {name: fake_walls,              type: "costmap_2d::StaticLayer"}
   - {name: inflation,               type: "costmap_2d::InflationLayer"}
