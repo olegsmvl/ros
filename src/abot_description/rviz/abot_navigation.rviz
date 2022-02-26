@@ -4,7 +4,9 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Path1
         - /Map2
+        - /Path2
       Splitter Ratio: 0.5
     Tree Height: 538
   - Class: rviz/Selection
@@ -198,7 +200,7 @@ Visualization Manager:
       Axes Radius: 0.009999999776482582
       Class: rviz/PoseArray
       Color: 138; 226; 52
-      Enabled: true
+      Enabled: false
       Head Length: 0.07000000029802322
       Head Radius: 0.029999999329447746
       Name: PoseArray
@@ -208,16 +210,16 @@ Visualization Manager:
       Shape: Arrow (Flat)
       Topic: /particlecloud
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
-      Color: 0; 0; 0
+      Color: 114; 159; 207
       Enabled: true
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
       Length: 0.30000001192092896
-      Line Style: Lines
+      Line Style: Billboards
       Line Width: 0.029999999329447746
       Name: Path
       Offset:
@@ -230,7 +232,7 @@ Visualization Manager:
       Radius: 0.029999999329447746
       Shaft Diameter: 0.10000000149011612
       Shaft Length: 0.10000000149011612
-      Topic: /move_base/DWAPlannerROS/global_plan
+      Topic: /move_base/NavfnROS/plan
       Unreliable: false
       Value: true
     - Alpha: 0.699999988079071
@@ -242,6 +244,30 @@ Visualization Manager:
       Topic: /move_base/local_costmap/costmap
       Unreliable: false
       Use Timestamp: false
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 237; 212; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Billboards
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /move_base/DWAPlannerROS/local_plan
+      Unreliable: false
       Value: true
   Enabled: true
   Global Options:
@@ -271,7 +297,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.6306915283203125
+      Distance: 9.242555618286133
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -279,9 +305,9 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.42005273699760437
-        Y: -0.39977848529815674
-        Z: -0.05732318013906479
+        X: 0.15858936309814453
+        Y: -0.7083691954612732
+        Z: -0.20944565534591675
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
