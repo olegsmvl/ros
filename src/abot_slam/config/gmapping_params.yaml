@@ -12,10 +12,10 @@ resampleThreshold: 0.5
 
 particles: 30
 
-xmax: 20.0
-xmin: -20.0
-ymax: 20.0
-ymin: -20.0
+xmax: 7.0
+xmin: -7.0
+ymax: 7.0
+ymin: -7.0
 
 delta: 0.025
 
