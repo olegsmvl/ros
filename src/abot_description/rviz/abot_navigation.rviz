@@ -4,13 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
-        - /Status1
-        - /Grid1
-        - /TF1
-        - /PoseArray1
-        - /PoseArray1/Status1
-        - /Path1
+        - /Map2
       Splitter Ratio: 0.5
     Tree Height: 538
   - Class: rviz/Selection
@@ -239,6 +233,16 @@ Visualization Manager:
       Topic: /move_base/DWAPlannerROS/global_plan
       Unreliable: false
       Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /move_base/local_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -267,7 +271,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.066394329071045
+      Distance: 6.6306915283203125
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -283,9 +287,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8897969722747803
+      Pitch: 1.0097968578338623
       Target Frame: <Fixed Frame>
-      Yaw: 4.6153998374938965
+      Yaw: 3.0803940296173096
     Saved: ~
 Window Geometry:
   Displays:
