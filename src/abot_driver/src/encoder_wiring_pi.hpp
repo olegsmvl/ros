@@ -2,7 +2,7 @@
 #define ENCODER_WIRING_PI_HPP_
 
 #include <ros/ros.h>
-#include <wiringPi.h>
+// #include <wiringPi.h>
 
 #define ENCODER_1_PIN_A 17  // Wiring pi 0 = BCM 17
 #define ENCODER_1_PIN_B 27  // Wiring pi 2 = BCM 27
@@ -19,20 +19,20 @@ namespace EncoderWiringPiISR {
     volatile uint8_t encoderState2;
 
     void encoderISR(const int pinA, const int pinB, volatile long &encoderPosition, volatile uint8_t &encoderState) {
-        uint8_t valA = digitalRead(pinA);
-        uint8_t valB = digitalRead(pinB);
-        uint8_t s = encoderState & 3;
-        if (valA) s |= 4;
-        if (valB) s |= 8; 
-        encoderState = (s >> 2);
-        if (s == 1 || s == 7 || s == 8 || s == 14)
-            encoderPosition++;
-        else if (s == 2 || s == 4 || s == 11 || s == 13)
-            encoderPosition--;
-        else if (s == 3 || s == 12)
-            encoderPosition += 2;
-        else if (s == 6 || s == 9)
-            encoderPosition -= 2;
+        // uint8_t valA = digitalRead(pinA);
+        // uint8_t valB = digitalRead(pinB);
+        // uint8_t s = encoderState & 3;
+        // if (valA) s |= 4;
+        // if (valB) s |= 8; 
+        // encoderState = (s >> 2);
+        // if (s == 1 || s == 7 || s == 8 || s == 14)
+        //     encoderPosition++;
+        // else if (s == 2 || s == 4 || s == 11 || s == 13)
+        //     encoderPosition--;
+        // else if (s == 3 || s == 12)
+        //     encoderPosition += 2;
+        // else if (s == 6 || s == 9)
+        //     encoderPosition -= 2;
     }
 
     void encoderISR1(void) {
@@ -59,31 +59,31 @@ private:
 EncoderWiringPi::EncoderWiringPi(const int &pinA, const int &pinB, void (*isrFunction)(void), volatile long* encoderPosition) {
     _encoderPosition = encoderPosition;
 
-    if (wiringPiSetupSys() < 0) {
-        ROS_ERROR("Encoder wiringPi error: GPIO setup error");
-        throw std::runtime_error("");
-    }
-    ROS_INFO("Encoder wiringPi: GPIO setup");
+    // if (wiringPiSetupSys() < 0) {
+    //     ROS_ERROR("Encoder wiringPi error: GPIO setup error");
+    //     throw std::runtime_error("");
+    // }
+    // ROS_INFO("Encoder wiringPi: GPIO setup");
 
-    _pinA = pinA;
-    _pinB = pinB;
-    pinMode(_pinA, INPUT);
-    pinMode(_pinB, INPUT);
-    pullUpDnControl(_pinA, PUD_UP);
-    pullUpDnControl(_pinB, PUD_UP);
+    // _pinA = pinA;
+    // _pinB = pinB;
+    // pinMode(_pinA, INPUT);
+    // pinMode(_pinB, INPUT);
+    // pullUpDnControl(_pinA, PUD_UP);
+    // pullUpDnControl(_pinB, PUD_UP);
 
-    if (wiringPiISR(_pinA, INT_EDGE_BOTH, isrFunction) < 0) {
-        ROS_ERROR("Encoder wiringPi error: ISR pinA error");
-        throw std::runtime_error("");
-    }
+    // if (wiringPiISR(_pinA, INT_EDGE_BOTH, isrFunction) < 0) {
+    //     ROS_ERROR("Encoder wiringPi error: ISR pinA error");
+    //     throw std::runtime_error("");
+    // }
 
-    if (wiringPiISR(_pinB, INT_EDGE_BOTH, isrFunction) < 0) {
-        ROS_ERROR("Encoder wiringPi error: ISR pinB error");
-        throw std::runtime_error("");
-    }
+    // if (wiringPiISR(_pinB, INT_EDGE_BOTH, isrFunction) < 0) {
+    //     ROS_ERROR("Encoder wiringPi error: ISR pinB error");
+    //     throw std::runtime_error("");
+    // }
 
-    _initial_angle = ticks2Angle(*_encoderPosition);
-    ROS_INFO("Encoder wiringPi: ISR setup");
+    // _initial_angle = ticks2Angle(*_encoderPosition);
+    // ROS_INFO("Encoder wiringPi: ISR setup");
 }
 
 double EncoderWiringPi::getAngle() {

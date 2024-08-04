@@ -144,10 +144,10 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 add_executable(encoders src/encoders.cpp )
-target_link_libraries(encoders ${catkin_LIBRARIES} -lwiringPi -lpthread -lcrypt -lm -lrt -Wno-psabi)
+target_link_libraries(encoders ${catkin_LIBRARIES} -lpthread -lcrypt -lm -lrt -Wno-psabi)
 
 add_executable(dc_motors src/dc_motors.cpp)
-target_link_libraries(dc_motors ${catkin_LIBRARIES} -lwiringPi -lpthread -lcrypt -lm -lrt)
+target_link_libraries(dc_motors ${catkin_LIBRARIES} -lpthread -lcrypt -lm -lrt)
  
 #############
 ## Install ##

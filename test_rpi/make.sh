@@ -1,4 +1,4 @@
 rm -Rf build
 mkdir build
-g++ app.cpp -lwiringPi -o build/app
+g++ app.cpp -o build/app
 build/app

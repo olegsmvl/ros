@@ -3,7 +3,7 @@
 #define DC_MOTOR_WIRING_PI_HPP_
 
 #include <ros/ros.h>
-#include <wiringPi.h>
+// #include <wiringPi.h>
 
 #define RPI_MAX_PWM_VALUE 1023
 
@@ -21,37 +21,37 @@ private:
 };
 
 DCMotorWiringPi::DCMotorWiringPi(int8_t a_channel_pin, int8_t b_channel_pin, int8_t enable_pin) {
-    _a_channel_pin = a_channel_pin;
-    _b_channel_pin = b_channel_pin;
-    _enable_pin = enable_pin;
-    if (wiringPiSetupGpio() < 0) {
-        ROS_ERROR("DCMotor wiringPi error: GPIO setup error");
-        throw std::runtime_error("");
-    }
-    ROS_INFO("DCMotor wiringPi: GPIO setup");
-    pinMode(_a_channel_pin, OUTPUT);
-    pinMode(_b_channel_pin, OUTPUT);
-    pinMode(_enable_pin, PWM_OUTPUT);
-    stop();
-    ROS_INFO("DCMotor wiringPi: Motor setup");
+    // _a_channel_pin = a_channel_pin;
+    // _b_channel_pin = b_channel_pin;
+    // _enable_pin = enable_pin;
+    // if (wiringPiSetupGpio() < 0) {
+    //     ROS_ERROR("DCMotor wiringPi error: GPIO setup error");
+    //     throw std::runtime_error("");
+    // }
+    // ROS_INFO("DCMotor wiringPi: GPIO setup");
+    // pinMode(_a_channel_pin, OUTPUT);
+    // pinMode(_b_channel_pin, OUTPUT);
+    // pinMode(_enable_pin, PWM_OUTPUT);
+    // stop();
+    // ROS_INFO("DCMotor wiringPi: Motor setup");
 }
 
 void DCMotorWiringPi::stop() {
-	pwmWrite(_enable_pin, 0);
-	digitalWrite(_a_channel_pin, 0);
-	digitalWrite(_b_channel_pin, 0);
+	// pwmWrite(_enable_pin, 0);
+	// digitalWrite(_a_channel_pin, 0);
+	// digitalWrite(_b_channel_pin, 0);
 }
 
 void DCMotorWiringPi::cw(uint16_t val) {
-	pwmWrite(_enable_pin, protectOutput(val));
-	digitalWrite(_a_channel_pin, 1);
-	digitalWrite(_b_channel_pin, 0);
+	// pwmWrite(_enable_pin, protectOutput(val));
+	// digitalWrite(_a_channel_pin, 1);
+	// digitalWrite(_b_channel_pin, 0);
 }
 
 void DCMotorWiringPi::ccw(uint16_t val) {
-	pwmWrite(_enable_pin, protectOutput(val));
-	digitalWrite(_a_channel_pin, 0);
-	digitalWrite(_b_channel_pin, 1);;
+	// pwmWrite(_enable_pin, protectOutput(val));
+	// digitalWrite(_a_channel_pin, 0);
+	// digitalWrite(_b_channel_pin, 1);;
 }
 
 uint16_t DCMotorWiringPi::protectOutput(uint16_t val) {
